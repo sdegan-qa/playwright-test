@@ -4,8 +4,12 @@ const { LoginPage } = require('../pages/loginPage');
 
 // Write a test
 test("Login to app", async ({ page }) => {
-    // go to URL
+    // creates a constant named loginpage, and 
+    // instantiates a new instance of LoginPage as its value.
     const loginpage = new LoginPage(page);
+
+    // goes to base URL
     await loginpage.goto();
+    // preforms the login
     await loginpage.login();
 });
