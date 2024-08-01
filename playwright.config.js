@@ -25,17 +25,34 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-
+    baseURL: 'http://localhost:5173',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: "retain-on-failure",
+    /* sets if headless is true or false */
+    headless: false,
+    /* When to take screenshots "off"|"on"|"only-on-failure"*/
+    screenshot: 'only-on-failure',
+    /* creating a test id attribute*/
+    // testIdAttribute: 'data-cy',
+    /* records video*/
+    video: {
+      mode: "retain-on-failure",
+      size: { width: 640, height: 480 }
+    }
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: {
+        ...devices['Desktop Chrome'],
+        deviceScaleFactor: undefined,
+        viewport: null,
+        launchOptions: {
+          args: ['--start-maximized']
+        },
+      },
     },
 
     {
