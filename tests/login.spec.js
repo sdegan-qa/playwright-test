@@ -25,3 +25,14 @@ test("Login Failed", async ({ page }) => {
     await loginpage.login('admin_user', 'admin_pass');
     await loginpage.loginErrorMessage();
 });
+
+test("Forgot Password button", async ({ page }) => {
+    // creates a constant named loginpage, and 
+    // instantiates a new instance of LoginPage as its value.
+    const loginpage = new LoginPage(page);
+
+    // goes to base URL
+    await loginpage.goto();
+    // clicks the forgot password button
+    await loginpage.forgotPassword();
+});

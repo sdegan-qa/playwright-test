@@ -16,6 +16,7 @@ exports.LoginPage = class LoginPage {
         this.loginBtn = page.getByRole('button', { name: 'LOGIN' });
         this.errorBox = page.locator('[role="alert"]');
         this.errorMessage = page.locator('.MuiAlert-message');
+        this.forgotPasswordBtn = page.getByRole('button', { name: "FORGOT PASSWORD?" });
 
     }
 
@@ -44,9 +45,18 @@ exports.LoginPage = class LoginPage {
 
     // error message box
     async loginErrorMessage() {
-        // waits for the error box to be visable
+        // waits for the error box to be visible
         await expect(this.errorBox).toBeVisible();
         // verifies the text in the error box
-        await expect(this.errorMessage).toHaveText('Username must be user.Password must be password.');
+        await expect(this.errorMessage).toHaveText(`Username must be ${process.env.USER_NAME}.Password must be ${process.env.PASSWORD}.`);
+    }
+
+    // Forgot password button
+    async forgotPassword() {
+        // waits for the forgot password button to be visible
+        await expect(this.forgotPasswordBtn).toBeEnabled();
+        // Clicks on Forgot Password
+        await this.forgotPasswordBtn.click();
+        await this.page.waitForTimeout(3000);
     }
 }
