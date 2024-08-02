@@ -13,3 +13,15 @@ test("Login to app", async ({ page }) => {
     // preforms the login
     await loginpage.login();
 });
+
+test("Login Failed", async ({ page }) => {
+    // creates a constant named loginpage, and 
+    // instantiates a new instance of LoginPage as its value.
+    const loginpage = new LoginPage(page);
+
+    // goes to base URL
+    await loginpage.goto();
+    // preforms the login with bad creds
+    await loginpage.login('admin_user', 'admin_pass');
+    await loginpage.loginErrorMessage();
+});
