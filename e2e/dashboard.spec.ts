@@ -1,10 +1,10 @@
 // Include Playwright Module
-const { test, expect } = require("@playwright/test");
-const { DashboardPage } = require('../pages/dashboardPage');
-const { PokemonPage } = require('../pages/pokemonPage');
-const { UsersPage } = require('../pages/usersPage');
-const { SpacePage } = require('../pages/spacePage');
-const { SunriseSunsetPage } = require('../pages/sunriseSunsetPage');
+import { test, expect } from "@playwright/test";
+import { DashboardPage } from '../pages/dashboardPage';
+import { PokemonPage } from '../pages/pokemonPage';
+import { UsersPage } from '../pages/usersPage';
+import { SpacePage } from '../pages/spacePage';
+import { SunriseSunsetPage } from '../pages/sunriseSunsetPage';
 
 // Write a test
 test("Goes to the Pokemon page from the Dashboard", async ({ page }) => {

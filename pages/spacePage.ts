@@ -1,13 +1,17 @@
 // include playwright module
-const { expect } = require('@playwright/test');
+import { expect, type Locator, type Page } from '@playwright/test';
 
 // create class
-exports.SpacePage = class SpacePage {
-    /**
-     * 
-     * @param {import ('@playwright/test').Page} page
-     */
-    constructor(page) {
+export class SpacePage {
+    private page: Page;
+    private vandenberg3W;
+    private capeCanaveral: Locator;
+    private spaceX: Locator;
+    private Kwajalein: Locator;
+    private vandenberg4E: Locator;
+    private Kennedy: Locator;
+
+    constructor(page: Page) {
         // Init page object
         this.page = page;
         // Elements
