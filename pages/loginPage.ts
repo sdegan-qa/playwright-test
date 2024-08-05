@@ -1,13 +1,17 @@
 // include playwright module
-const { expect } = require('@playwright/test');
+import { expect, type Locator, type Page } from '@playwright/test';
 
 // create class
-exports.LoginPage = class LoginPage {
-    /**
-     * 
-     * @param {import ('@playwright/test').Page} page
-     */
-    constructor(page) {
+export class LoginPage {
+    private page: Page;
+    private usernameInput: Locator;
+    private passwordInput: Locator;
+    private loginBtn: Locator;
+    private errorBox: Locator;
+    private errorMessage: Locator;
+    private forgotPasswordBtn: Locator;
+
+    constructor(page: Page) {
         // Init page object
         this.page = page;
         // Elements
@@ -26,7 +30,7 @@ exports.LoginPage = class LoginPage {
     }
 
     // successful login
-    async login(username, password) {
+    async login(username?, password?) {
         // Waits for the username input box to be enabled
         await expect(this.usernameInput).toBeEnabled();
 

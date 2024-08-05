@@ -1,13 +1,15 @@
 // include playwright module
-const { expect } = require('@playwright/test');
+import { expect, type Locator, type Page } from '@playwright/test';
 
 // create class
-exports.DashboardPage = class DashboardPage {
-    /**
-     * 
-     * @param {import ('@playwright/test').Page} page
-     */
-    constructor(page) {
+export class DashboardPage {
+    private page: Page;
+    private pokemonBtn: Locator;
+    private usersBtn: Locator;
+    private spaceBtn: Locator;
+    private sunriseSunsetBtn: Locator;
+
+    constructor(page: Page) {
         // Init page object
         this.page = page;
         // Elements
