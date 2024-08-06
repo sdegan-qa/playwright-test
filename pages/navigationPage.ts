@@ -10,6 +10,8 @@ export class NavigationPage {
     private spaceBtnNav: Locator;
     private sunriseSunsetBtnNav: Locator;
     private appBar: Locator;
+    private menuBtn: Locator;
+    private menuCloseBtn: Locator
 
     constructor(page: Page) {
         // Init page object
@@ -21,6 +23,18 @@ export class NavigationPage {
         this.spaceBtnNav = page.getByRole('button', { name: 'Space' });
         this.sunriseSunsetBtnNav = page.getByRole('button', { name: 'Sunrise - Sunset' });
         this.appBar = page.locator('.MuiAppBar-root');
+        this.menuBtn = page.getByRole('button', { name: 'menu' });
+        this.menuCloseBtn = page.getByTestId('ChevronLeftIcon');
+    }
+
+    async menuOpenBtnNavBar() {
+        await expect(this.menuBtn).toBeVisible();
+        await this.menuBtn.click();
+    }
+
+    async menuCloseBtnNavBar() {
+        await expect(this.menuCloseBtn).toBeVisible();
+        await this.menuCloseBtn.click();
     }
 
     // method that navigates to the dashboard page

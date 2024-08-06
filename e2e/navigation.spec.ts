@@ -4,6 +4,15 @@ import { DashboardPage } from '../pages/dashboardPage';
 import { NavigationPage } from '../pages/navigationPage';
 
 // Write a test
+test("Opens and closes the Menu", async ({ page }) => {
+    const dashboardPage = new DashboardPage(page);
+    const navigationPage = new NavigationPage(page);
+    // goes to the dashboard page, Clicks on the pokemon button
+    await dashboardPage.goto();
+    await navigationPage.menuOpenBtnNavBar();
+    await navigationPage.menuCloseBtnNavBar();
+});
+
 test("Goes to the Dashboard page from the Dashboard using the the Nav Bar", async ({ page }) => {
     const dashboardPage = new DashboardPage(page);
     const navigationPage = new NavigationPage(page);
