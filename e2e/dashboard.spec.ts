@@ -5,7 +5,6 @@ import { PokemonPage } from '../pages/pokemonPage';
 import { UsersPage } from '../pages/usersPage';
 import { SpacePage } from '../pages/spacePage';
 import { SunriseSunsetPage } from '../pages/sunriseSunsetPage';
-import { NavigationPage } from '../pages/navigationPage';
 
 // Write a test
 test("Goes to the Pokemon page from the Dashboard", async ({ page }) => {

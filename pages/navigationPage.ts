@@ -23,10 +23,37 @@ export class NavigationPage {
         this.appBar = page.locator('.MuiAppBar-root');
     }
 
-    // method that navigates to the dashboard
+    // method that navigates to the dashboard page
     async dashboardNavBar() {
         await expect(this.dashboardBtnNav).toBeEnabled();
         await this.dashboardBtnNav.click();
         await expect(this.page).toHaveURL('/dashboard');
+    }
+    // method that navigates to the pokemon page
+    async pokemonNavBar() {
+        await expect(this.pokemonBtnNav).toBeEnabled();
+        await this.pokemonBtnNav.click();
+        await expect(this.page).toHaveURL('/pokemon');
+    }
+
+    // method that navigates to the users page
+    async userNavBar() {
+        await expect(this.usersBtnNav).toBeEnabled();
+        await this.usersBtnNav.click();
+        await expect(this.page).toHaveURL('/user');
+    }
+
+    // method that navigates to the users page
+    async spaceNavBar() {
+        await expect(this.spaceBtnNav).toBeEnabled();
+        await this.spaceBtnNav.click();
+        await expect(this.page).toHaveURL('/space');
+    }
+
+    // method that navigates to the sunrise - sunset page
+    async sunriseSunsetNavBar() {
+        await expect(this.sunriseSunsetBtnNav).toBeEnabled();
+        await this.sunriseSunsetBtnNav.click();
+        await expect(this.page).toHaveURL('/sunrise-sunset');
     }
 }
