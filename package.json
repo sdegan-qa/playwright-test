@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "This repository is for learning Playwright",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "pretest": "tsc --noEmit",
+    "test": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.45.3",
-    "@types/node": "^22.0.2"
+    "@types/node": "^22.1.0",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "dotenv": "^16.4.5"

@@ -30,17 +30,17 @@ export class LoginPage {
     }
 
     // successful login
-    async login(username?, password?) {
+    async login(username: string, password: string) {
         // Waits for the username input box to be enabled
         await expect(this.usernameInput).toBeEnabled();
 
         // Enters the username
         await this.usernameInput.click();
-        await this.usernameInput.fill(username || process.env.USER_NAME);
+        await this.usernameInput.fill(username);
 
         // Enters the password
         await this.passwordInput.click();
-        await this.passwordInput.fill(password || process.env.PASSWORD);
+        await this.passwordInput.fill(password);
 
         // Clicks on the enabled login button
         await expect(this.loginBtn).toBeEnabled();
