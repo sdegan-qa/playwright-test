@@ -34,7 +34,7 @@ test("Goes to the Space page from the Dashboard", async ({ page }) => {
     // goes to the dashboard page, Clicks on the space button
     await dashboardPage.goto();
     await dashboardPage.clickSpaceBtn();
-    await spacePage.checkVandenberg3W();
+    await spacePage.checkSpaceHeader();
 });
 
 test("Goes to the Sunrise - Sunset page from the Dashboard", async ({ page }) => {
@@ -44,5 +44,5 @@ test("Goes to the Sunrise - Sunset page from the Dashboard", async ({ page }) =>
     // goes to the dashboard page, Clicks on the sunrise - sunset button
     await dashboardPage.goto();
     await dashboardPage.clickSunriseSunsetBtn();
-    await sunriseSunsetPage.checkSelectCityDropdown();
+    await sunriseSunsetPage.checkSunriseSunsetHeader();
 });

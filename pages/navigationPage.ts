@@ -20,18 +20,27 @@ export class NavigationPage {
         this.dashboardBtnNav = page.getByRole('button', { name: 'Dashboard' });
         this.pokemonBtnNav = page.getByRole('button', { name: 'Pokemon' });
         this.usersBtnNav = page.getByRole('button', { name: 'Users' });
-        this.spaceBtnNav = page.getByRole('button', { name: 'Space' });
+        this.spaceBtnNav = page.getByTestId('RocketOutlinedIcon');
         this.sunriseSunsetBtnNav = page.getByRole('button', { name: 'Sunrise - Sunset' });
         this.appBar = page.locator('.MuiAppBar-root');
         this.menuBtn = page.getByRole('button', { name: 'menu' });
         this.menuCloseBtn = page.getByTestId('ChevronLeftIcon');
     }
 
+    // method that checks the app header
+    async appHeaderBar() {
+        await expect(this.appBar).toBeVisible();
+        await expect(this.appBar.getByText('QA Playground', { exact: true })).toBeVisible();
+        await this.appBar.hover();
+    }
+
+    // method that opens the side nav
     async menuOpenBtnNavBar() {
         await expect(this.menuBtn).toBeVisible();
         await this.menuBtn.click();
     }
 
+    // method that closes the side nav
     async menuCloseBtnNavBar() {
         await expect(this.menuCloseBtn).toBeVisible();
         await this.menuCloseBtn.click();
@@ -42,12 +51,14 @@ export class NavigationPage {
         await expect(this.dashboardBtnNav).toBeEnabled();
         await this.dashboardBtnNav.click();
         await expect(this.page).toHaveURL('/dashboard');
+        await this.appHeaderBar();
     }
     // method that navigates to the pokemon page
     async pokemonNavBar() {
         await expect(this.pokemonBtnNav).toBeEnabled();
         await this.pokemonBtnNav.click();
         await expect(this.page).toHaveURL('/pokemon');
+        await this.appHeaderBar();
     }
 
     // method that navigates to the users page
@@ -55,6 +66,7 @@ export class NavigationPage {
         await expect(this.usersBtnNav).toBeEnabled();
         await this.usersBtnNav.click();
         await expect(this.page).toHaveURL('/user');
+        await this.appHeaderBar();
     }
 
     // method that navigates to the users page
@@ -62,6 +74,7 @@ export class NavigationPage {
         await expect(this.spaceBtnNav).toBeEnabled();
         await this.spaceBtnNav.click();
         await expect(this.page).toHaveURL('/space');
+        await this.appHeaderBar();
     }
 
     // method that navigates to the sunrise - sunset page
@@ -69,5 +82,6 @@ export class NavigationPage {
         await expect(this.sunriseSunsetBtnNav).toBeEnabled();
         await this.sunriseSunsetBtnNav.click();
         await expect(this.page).toHaveURL('/sunrise-sunset');
+        await this.appHeaderBar();
     }
 }

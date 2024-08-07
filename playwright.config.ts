@@ -28,15 +28,37 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'http://localhost:5173/',
 
+    /* sets if headless is true or false */
+    headless: true,
+
+    /* test id */
+    testIdAttribute: 'data-testid',
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+
+    /* When to take screenshots "off"|"on"|"only-on-failure"*/
+    screenshot: 'only-on-failure',
+
+    /* records video*/
+    video: {
+      mode: 'retain-on-failure',
+      size: { width: 1920, height: 1080 }
+    },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        deviceScaleFactor: undefined,
+        viewport: null,
+        launchOptions: {
+          args: ['--start-maximized']
+        },
+      },
     },
 
     {
