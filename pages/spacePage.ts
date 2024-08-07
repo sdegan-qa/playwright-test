@@ -30,7 +30,7 @@ export class SpacePage {
         await this.page.goto('/space');
     }
 
-    // checks the header on the pokemon page
+    // checks the header on the Space page
     async checkSpaceHeader() {
         await expect(this.spaceHeader).toHaveText('Space');
     }
